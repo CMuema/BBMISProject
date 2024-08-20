@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Bank Management System</title>
+</head>
+<body>
+    <h1>Blood Bank Management System</h1>
+    <h2>Register Donor</h2>
+    <form id="donorForm" action="register.php" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="age">Age:</label><br>
+        <input type="text" id="age" name="age"><br>
+        <label for="gender">Gender:</label><br>
+        <input type="text" id="gender" name="gender"><br>
+        <label for="bloodType">Blood Type:</label><br>
+        <input type="text" id="bloodType" name="bloodType"><br>
+        <label for="contactNumber">Contact Number:</label><br>
+        <input type="text" id="contactNumber" name="contactNumber"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br><br>
+        <input type="button" value="Submit" onclick="submitForm()">
+    </form>
+    <script>function submitForm() {
+            var xhr = new XMLHttpRequest();
+            var url = "http://localhost:3306/addDonor";
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            var data = JSON.stringify({
+                "name": document.getElementById("name").value,
+                "age": document.getElementById("age").value,
+                "gender": document.getElementById("gender").value,
+                "bloodType": document.getElementById("bloodType").value,
+                "contactNumber": document.getElementById("contactNumber").value,
+                "email": document.getElementById("email").value,
+                "address": document.getElementById("address").value
+            });
+            xhr.send(data);
+            alert("Donor registered successfully!");
+        }</script>
+</body>
+</html>

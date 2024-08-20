@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital - Pewa Damu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        .content {
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .content h1 {
+            color: #35424a;
+        }
+        .content form {
+            display: flex;
+            flex-direction: column;
+        }
+        .content form label {
+            margin-bottom: 10px;
+        }
+        .content form input,
+        .content form select,
+        .content form textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .content form button {
+            padding: 10px;
+            background: #35424a;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .content form button:hover {
+            background: #e8491d;
+        }
+        .inventory, .transfusions {
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Hospital Dashboard - Pewa Damu</h1>
+            <nav>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="hospital.html">Hospital</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h1>Request Blood Supplies</h1>
+            <form id="requestForm">
+                <label for="bloodType">Blood Type</label>
+                <select id="bloodType" name="bloodType" required>
+                    <option value="">Select Blood Type</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+                <label for="quantity">Quantity (units)</label>
+                <input type="number" id="quantity" name="quantity" required>
+                <label for="hospitalName">Hospital Name</label>
+                <input type="text" id="hospitalName" name="hospitalName" required>
+                <label for="hospitalAddress">Hospital Address</label>
+                <textarea id="hospitalAddress" name="hospitalAddress" required></textarea>
+                <button type="submit">Submit Request</button>
+            </form>
+
+            <div class="inventory">
+                <h1>Track Inventory</h1>
+                <table id="inventoryTable">
+                    <tr>
+                        <th>Blood Type</th>
+                        <th>Quantity (units)</th>
+                    </tr>
+                    <!-- Sample data -->
+                    <tr>
+                        <td>A+</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>O-</td>
+                        <td>5</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="transfusions">
+                <h1>Manage Patient Transfusions</h1>
+                <form id="transfusionForm">
+                    <label for="patientName">Patient Name</label>
+                    <input type="text" id="patientName" name="patientName" required>
+                    <label for="patientBloodType">Patient Blood Type</label>
+                    <select id="patientBloodType" name="patientBloodType" required>
+                        <option value="">Select Blood Type</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                    <label for="transfusionDate">Transfusion Date</label>
+                    <input type="date" id="transfusionDate" name="transfusionDate" required>
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes"></textarea>
+                    <button type="submit">Record Transfusion</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
